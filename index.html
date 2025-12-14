@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resume Builder • Create Your Resume</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">ResumeBuilder<span style="color:var(--primary)">.</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" aria-current="page">Builder</a>
+      <a href="#preview">Preview</a>
+      <a href="#export">Export</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h1>Create your resume online</h1>
+    <p>
+      Fill the form on the left and your resume preview updates instantly on the right.
+      Click <span class="kbd">Print / Save PDF</span> to export.
+    </p>
+    <div class="help">
+      Works fully offline after load. Data is auto-saved in your browser (<code>localStorage</code>).
+    </div>
+    <div id="toast" class="card d-none" style="margin-top:12px; padding:10px 12px; box-shadow:none; border-style:dashed;"></div>
+    <div class="help" style="margin-top:8px;">Status: <span id="lastSaved"></span></div>
+  </section>
+
+  <div class="grid">
+    <!-- Builder -->
+    <section class="builder">
+      <div class="card">
+        <div class="section-title">
+          <h2>Basic Information</h2>
+          <button class="btn small" id="saveBtn" type="button">Save</button>
+        </div>
+
+        <label for="bName">Full name</label>
+        <input class="input" id="bName" placeholder="e.g., Ali Khan" />
+
+        <label for="bTitle">Professional title</label>
+        <input class="input" id="bTitle" placeholder="e.g., Web Developer" />
+
+        <div class="row">
+          <div>
+            <label for="bEmail">Email</label>
+            <input class="input" id="bEmail" type="email" placeholder="you@email.com" />
+          </div>
+          <div>
+            <label for="bPhone">Phone</label>
+            <input class="input" id="bPhone" placeholder="+92..." />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="bLocation">Location</label>
+            <input class="input" id="bLocation" placeholder="City, Country" />
+          </div>
+          <div>
+            <label for="bLinks">Links</label>
+            <input class="input" id="bLinks" placeholder="GitHub • LinkedIn • Portfolio" />
+          </div>
+        </div>
+
+        <label for="bSummary">Summary</label>
+        <textarea class="input" id="bSummary" placeholder="2–3 lines about you"></textarea>
+
+        <div class="hr"></div>
+
+        <div class="section-title">
+          <h2>Skills</h2>
+        </div>
+        <div class="row" style="grid-template-columns: 1fr auto;">
+          <div>
+            <input class="input" id="skillInput" placeholder="Add a skill (e.g., React)" />
+            <div class="help">Press Enter or click Add.</div>
+          </div>
+          <div style="display:flex; align-items:end;">
+            <button class="btn primary" id="addSkillBtn" type="button">Add</button>
+          </div>
+        </div>
+        <div id="skillsWrap" class="pills" aria-label="Skills list"></div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="section-title">
+          <h2>Experience</h2>
+          <button class="btn primary small" id="addExpBtn" type="button">+ Add</button>
+        </div>
+        <table class="table" aria-label="Experience table">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Company</th>
+              <th>Dates</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="expBody"></tbody>
+        </table>
+        <div class="help" style="margin-top:10px;">Use Edit to add bullet points.</div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="section-title">
+          <h2>Education</h2>
+          <button class="btn primary small" id="addEduBtn" type="button">+ Add</button>
+        </div>
+        <table class="table" aria-label="Education table">
+          <thead>
+            <tr>
+              <th>Program</th>
+              <th>Institute</th>
+              <th>Years</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="eduBody"></tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="section-title">
+          <h2>Projects</h2>
+          <button class="btn primary small" id="addProjBtn" type="button">+ Add</button>
+        </div>
+        <table class="table" aria-label="Projects table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Link</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="projBody"></tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:16px;" id="export">
+        <div class="section-title">
+          <h2>Export & Backup</h2>
+        </div>
+        <div class="help">
+          <strong>Print / Save PDF</strong> opens the browser print dialog.
+          Choose “Save as PDF” to download your resume.
+        </div>
+
+        <div class="preview-actions" style="margin-top:12px;">
+          <button class="btn primary" id="printBtn" type="button">Print / Save PDF</button>
+          <button class="btn" id="exportJsonBtn" type="button">Export JSON</button>
+          <button class="btn" id="importJsonBtn" type="button">Import JSON</button>
+          <button class="btn danger" id="resetBtn" type="button">Reset</button>
+          <input id="importFile" type="file" accept="application/json" style="display:none;" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Preview -->
+    <aside class="preview-wrap" id="preview">
+      <div class="preview">
+        <p class="help" style="margin:0 0 10px;">
+          Live Preview (Export uses this layout)
+        </p>
+
+        <h1 class="r-name" id="pName"></h1>
+        <div class="r-title" id="pTitle"></div>
+
+        <div class="r-contact">
+          <span id="pEmail"></span>
+          <span id="pPhone"></span>
+          <span id="pLocation"></span>
+          <span id="pLinks"></span>
+        </div>
+
+        <div class="r-section">
+          <h3>Summary</h3>
+          <div id="pSummary" class="help" style="color:var(--text);"></div>
+        </div>
+
+        <div class="r-section">
+          <h3>Skills</h3>
+          <div id="pSkills" class="pills"></div>
+        </div>
+
+        <div class="r-section">
+          <h3>Experience</h3>
+          <div id="pExp"></div>
+        </div>
+
+        <div class="r-section">
+          <h3>Education</h3>
+          <div id="pEdu"></div>
+        </div>
+
+        <div class="r-section">
+          <h3>Projects</h3>
+          <div id="pProj"></div>
+        </div>
+
+        <div class="footer" style="margin-top:18px;">
+          © <span id="year"></span> ResumeBuilder
+        </div>
+      </div>
+
+      <div class="preview-actions">
+        <button class="btn primary" type="button" onclick="window.print()">Print / Save PDF</button>
+        <a class="btn" href="#export">Backup</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    Tip: Replace default text, then export as PDF. Hosting: GitHub Pages works (put these files in a repo).
+  </footer>
+</main>
+
+<!-- Editor modal -->
+<div id="editor" class="d-none" style="
+  position:fixed; inset:0; background: rgba(0,0,0,0.35);
+  display:flex; align-items:center; justify-content:center; padding: 18px;
+">
+  <div class="card" style="width:min(720px, 96vw); max-height: 86vh; overflow:auto;">
+    <div class="section-title">
+      <h2 id="editorTitle">Edit</h2>
+      <button class="btn small" id="editorClose" type="button">Close</button>
+    </div>
+    <div id="editorForm"></div>
+    <div class="preview-actions" style="justify-content:flex-end;">
+      <button class="btn danger" id="editorDelete" type="button">Delete</button>
+      <button class="btn primary" id="editorSave" type="button">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/builder.js"></script>
+</body>
+</html>
