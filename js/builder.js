@@ -5,6 +5,15 @@
 // - Save/Load with localStorage
 // - Export to PDF (Print) / Export JSON / Import JSON
 
+
+window.addEventListener("DOMContentLoaded", () => {
+  const ed = document.getElementById("editor");
+  if (ed) {
+    ed.classList.add("d-none");
+    ed.style.setProperty("display", "none", "important");
+  }
+});
+
 const STORAGE_KEY = "resume_builder_v1";
 
 const $ = (sel, root=document) => root.querySelector(sel);
@@ -419,8 +428,11 @@ function openEditor(kind, idx){
 }
 
 function closeEditor(){
-  $("#editor").classList.add("d-none");
+  const ed = document.getElementById("editor");
+  ed.classList.add("d-none");
+  ed.style.setProperty("display", "none", "important");
 }
+
 
 function bindTables(){
   $("#addExpBtn").addEventListener("click", ()=> openEditor("exp", -1));

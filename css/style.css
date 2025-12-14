@@ -151,3 +151,8 @@ label{font-size:13px; color: var(--muted); font-weight:650; display:block; margi
   .preview-wrap{ position:static; }
 }
 .footer{margin-top:26px; text-align:center; color:var(--muted); font-size:13px;}
+
+#editor.d-none { 
+  display: none !important; 
+}
+
