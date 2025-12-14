@@ -1,6 +1,3 @@
-
-.d-none { display: none !important; }
-
 :root{
   --bg:#f7f5ff;
   --card:#ffffff;
@@ -23,6 +20,9 @@ a:hover{color:var(--primary2);text-decoration:underline;}
   background: rgba(247,245,255,0.78);
   border-bottom:1px solid var(--border);
 }
+
+.d-none { display: none !important; }
+
 .nav-inner{
   width:min(1200px,92vw); margin:0 auto;
   display:flex; align-items:center; justify-content:space-between;
