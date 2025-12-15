@@ -191,3 +191,28 @@ label{font-size:13px; color: var(--muted); font-weight:650; display:block; margi
   cursor: pointer;
 }
 
+/* =========================
+   PRINT MODE (IMPORTANT)
+========================= */
+@media print {
+
+  /* Hide everything */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Show only resume preview */
+  .preview,
+  .preview * {
+    visibility: visible;
+  }
+
+  /* Make preview take full page */
+  .preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+}
