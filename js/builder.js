@@ -539,3 +539,7 @@ function init(){
   bindExport();
 }
 init();
+
+document.getElementById("contactForm").addEventListener("submit", () => {
+  alert("Thanks for contacting us! We'll get back to you soon.");
+});
