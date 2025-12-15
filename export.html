@@ -1,56 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Export Resume • Resume Builder</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8">
+  <title>Export Resume</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="nav">
   <div class="nav-inner">
-    <a class="brand" href="index.html">ResumeBuilder.</a>
-    <nav class="nav-links">
+    <h2>ResumeBuilder</h2>
+    <nav>
       <a href="index.html">Builder</a>
     </nav>
   </div>
 </header>
 
 <main class="container">
-  <section class="card">
-    <h1>Export Your Resume</h1>
-    <p>Select how you want to export your resume.</p>
+  <h1>Export Resume</h1>
 
-    <div class="preview-actions" style="margin-top:20px;">
-      <a class="btn primary" href="print.html" target="_blank">Print / Save as PDF</a>
-      <button class="btn" onclick="exportJSON()">
-        Download Backup (JSON)
-      </button>
+  <a class="btn" href="index.html" onclick="setTimeout(()=>window.print(),300)">
+    Print / Save as PDF
+  </a>
 
-      <a class="btn" href="index.html">
-        Back to Builder
-      </a>
-    </div>
-  </section>
+  <button class="btn" onclick="exportJSON()">Download JSON</button>
 </main>
 
 <script>
-  function exportJSON() {
-    const data = localStorage.getItem("resumeData");
-    if (!data) {
-      alert("No resume data found.");
-      return;
-    }
-
-    const blob = new Blob([data], { type: "application/json" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "resume-backup.json";
-    link.click();
-  }
-  window.print()
-
+function exportJSON() {
+  const data = localStorage.getItem("resume");
+  if (!data) return alert("No resume found");
+  const blob = new Blob([data], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "resume.json";
+  a.click();
+}
 </script>
 
 </body>
