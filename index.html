@@ -5,7 +5,7 @@
   <title>Resume Builder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/style.css" />
-  </head>
+</head>
 <body>
 
 <header class="nav">
@@ -15,41 +15,74 @@
     <a href="preview.html">Preview</a>
     <a href="export.html">Export</a>
     <a href="about.html">About</a>
-    </nav>
+  </nav>
 </header>
 
 <main class="container">
 
   <h1>Create Your Resume</h1>
+  <p style="color: var(--color-primary-dark); margin-bottom: 30px;">
+    Fill out the sections below. Remember to click **Save Resume** frequently!
+  </p>
 
   <section class="card">
-    <input id="name" placeholder="Full Name">
-    <input id="title" placeholder="Professional Title">
-    <input id="email" placeholder="Email">
-    <input id="phone" placeholder="Phone">
-    <input id="location" placeholder="Location">
-    <textarea id="summary" placeholder="Professional Summary"></textarea>
+    <h3>👤 Personal & Contact Info</h3>
+    <input id="name" placeholder="Full Name (e.g., John Doe)">
+    <input id="title" placeholder="Professional Title (e.g., Senior Software Engineer)">
+    
+    <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <input id="email" placeholder="Email Address" type="email" style="flex: 1;">
+        <input id="phone" placeholder="Phone Number" type="tel" style="flex: 1;">
+    </div>
+    <input id="location" placeholder="City, State (e.g., New York, NY)">
+
   </section>
 
   <section class="card">
-    <h3>Skills</h3>
+    <h3>📝 Professional Summary / Objective</h3>
+    <textarea id="summary" placeholder="A brief, powerful paragraph (3-5 sentences) summarizing your experience, skills, and career objectives."></textarea>
+  </section>
+
+  <section class="card">
+    <h3>💡 Skills</h3>
+    <p style="font-size: 0.9em; margin-bottom: 10px; color: #aaa;">Type a skill and press **Enter** to add it as a tag (e.g., JavaScript, Python, AWS).</p>
     <input id="skillInput" placeholder="Type skill and press Enter">
     <div id="skills"></div>
   </section>
 
   <section class="card">
-    <h3>Experience</h3>
-    <textarea id="experience"></textarea>
+    <h3>💼 Experience</h3>
+    <p style="font-size: 0.9em; margin-bottom: 10px; color: #aaa;">
+        Use this suggested format (include Company, Title, Dates, and Bullet Points). Separate entries with a blank line.
+    </p>
+    <textarea id="experience" placeholder="[Job Title] | [Company Name] | [Start Date - End Date]
+* Achieved X by doing Y
+* Led a team of Z engineers...
+... (Separate your next job with a blank line)">
+    </textarea>
   </section>
 
   <section class="card">
-    <h3>Education</h3>
-    <textarea id="education"></textarea>
+    <h3>🎓 Education</h3>
+    <p style="font-size: 0.9em; margin-bottom: 10px; color: #aaa;">
+        Use this suggested format (include Degree, Institution, and Dates). Separate entries with a blank line.
+    </p>
+    <textarea id="education" placeholder="[Degree/Major] | [Institution Name] | [Graduation Date]
+Relevant coursework: Data Structures, Algorithms.
+GPA: 3.8/4.0 (Optional)
+... (Separate your next entry with a blank line)">
+    </textarea>
   </section>
 
   <section class="card">
-    <h3>Projects</h3>
-    <textarea id="projects"></textarea>
+    <h3>💻 Projects</h3>
+    <p style="font-size: 0.9em; margin-bottom: 10px; color: #aaa;">
+        Use this suggested format (include Project Title, Link, and Description).
+    </p>
+    <textarea id="projects" placeholder="[Project Title] | [Link]
+* Brief description of the project and technologies used (e.g., Built a REST API using Node.js and MongoDB).
+... (Separate your next project with a blank line)">
+    </textarea>
   </section>
 
   <button class="primary" onclick="saveResume()">Save Resume</button>
