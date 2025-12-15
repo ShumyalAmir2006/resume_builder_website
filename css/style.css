@@ -417,3 +417,41 @@ button:not(.primary):hover {
     text-decoration: none;
     transition: background-color 0.2s;
 }
+
+/* --- About Page Specific Styles --- */
+
+.team-section {
+    /* Subtle background for the team section */
+    background-color: var(--color-background);
+}
+
+.team-list {
+    list-style: none; /* Remove default dots */
+    padding-left: 0;
+}
+
+.team-list li {
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--color-border);
+    font-size: 1.1em;
+}
+
+.team-list li:last-child {
+    border-bottom: none;
+}
+
+.contact-section h3 {
+    margin-bottom: 5px;
+}
+
+.primary-link {
+    color: var(--color-primary); /* Use primary color for the link */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.primary-link:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
