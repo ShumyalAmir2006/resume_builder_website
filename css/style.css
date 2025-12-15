@@ -3,20 +3,12 @@
    ========================================= */
 :root {
   --color-primary: #007bff; /* Blue */
-  --color-primary-dark: #0056b3;
-  --color-text: #333;
-  --color-background: #f8f9fa; /* Light Gray */
-  --color-card-bg: #fff;
-  --color-border: #ddd;
-  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
-
-/* Dark Mode Theme */
-[data-theme="dark"] {
+  --color-primary-dark: #4da3ff; /* Lighter blue for dark contrast */
   --color-text: #e9ecef; /* Light Gray Text */
-  --color-background: #212529; /* Dark Background */
-  --color-card-bg: #343a40;
-  --color-border: #495057;
+  --color-background: #121212; /* Near Black */
+  --color-card-bg: #1e1e1e; /* Darker gray for cards */
+  --color-border: #333333; /* Dark border */
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 * {
@@ -49,7 +41,7 @@ body {
   align-items: center;
   padding: 15px 30px;
   background-color: var(--color-card-bg);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Darker shadow for contrast */
 }
 
 .nav strong {
@@ -68,7 +60,7 @@ body {
 
 .nav a:hover {
   background-color: var(--color-border);
-  color: var(--color-primary-dark);
+  color: var(--color-primary);
 }
 
 #themeToggle {
@@ -77,6 +69,7 @@ body {
   cursor: pointer;
   font-size: 1.5em;
   margin-left: 20px;
+  color: var(--color-text); /* Ensure the icon is visible */
 }
 
 /* =========================================
@@ -91,7 +84,7 @@ h1 {
   background-color: var(--color-card-bg);
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   margin-bottom: 25px;
   border-top: 5px solid var(--color-primary);
 }
@@ -117,7 +110,7 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, input:not(
 input:focus, textarea:focus {
   border-color: var(--color-primary);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4);
 }
 
 textarea {
@@ -190,13 +183,18 @@ button:not(.primary):hover {
 /* =========================================
    4. Resume Preview (The Resume)
    ========================================= */
+
+/* The Resume document itself should remain printable white, 
+   but the surrounding area is dark. This is essential for good PDF output. 
+   If you truly want a black resume background (not recommended for printing), 
+   change the 'white' to a dark variable. */
 .resume {
   max-width: 850px;
   margin: 30px auto;
   padding: 40px;
-  background-color: white; /* Always white for resume print look */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: #333;
+  background-color: white; /* **KEEP WHITE FOR PRINTING/PDF** */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: #333; /* Dark text on white resume body */
 }
 
 .resume h1 {
@@ -236,6 +234,7 @@ button:not(.primary):hover {
     margin: 0 8px 8px 0;
     border-radius: 3px;
     font-size: 0.9em;
+    color: #333; /* Dark text on light skill tag */
 }
 
 /* Preview Actions */
@@ -243,6 +242,7 @@ button:not(.primary):hover {
     text-align: center;
     padding: 20px 0;
     border-top: 1px solid var(--color-border);
+    background-color: var(--color-background); /* Dark background for actions bar */
 }
 
 .preview-actions button, .preview-actions a, .preview-actions select {
@@ -253,7 +253,7 @@ button:not(.primary):hover {
     padding: 10px;
     border-radius: 4px;
     border: 1px solid var(--color-border);
-    background-color: var(--color-card-bg);
+    background-color: var(--color-background);
     color: var(--color-text);
 }
 
