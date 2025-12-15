@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Export Resume • Resume Builder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">ResumeBuilder.</a>
+    <nav class="nav-links">
+      <a href="index.html">Builder</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h1>Export Your Resume</h1>
+    <p>Select how you want to export your resume.</p>
+
+    <div class="preview-actions" style="margin-top:20px;">
+      <button class="btn primary" onclick="window.print()">
+        Print / Save as PDF
+      </button>
+
+      <button class="btn" onclick="exportJSON()">
+        Download Backup (JSON)
+      </button>
+
+      <a class="btn" href="index.html">
+        Back to Builder
+      </a>
+    </div>
+  </section>
+</main>
+
+<script>
+  function exportJSON() {
+    const data = localStorage.getItem("resumeData");
+    if (!data) {
+      alert("No resume data found.");
+      return;
+    }
+
+    const blob = new Blob([data], { type: "application/json" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "resume-backup.json";
+    link.click();
+  }
+</script>
+
+</body>
+</html>

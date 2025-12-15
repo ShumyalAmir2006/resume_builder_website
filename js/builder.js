@@ -558,17 +558,3 @@ function downloadJSON() {
   link.click();
 }
 
-document.getElementById("exportBtn").addEventListener("click", (e) => {
-  e.preventDefault(); // stop page jump
-  const menu = document.getElementById("exportMenu");
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
-});
-
-document.addEventListener("click", (e) => {
-  const menu = document.getElementById("exportMenu");
-  const btn = document.getElementById("exportBtn");
-
-  if (!menu.contains(e.target) && e.target !== btn) {
-    menu.style.display = "none";
-  }
-});
