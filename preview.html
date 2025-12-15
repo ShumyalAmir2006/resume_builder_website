@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Preview</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/print.css">
+</head>
+<body>
+
+<main id="resume" class="resume template-1">
+  <h1 id="pName"></h1>
+  <h2 id="pTitle"></h2>
+  <p id="pContact"></p>
+
+  <section>
+    <h3>Summary</h3>
+    <p id="pSummary"></p>
+  </section>
+
+  <section>
+    <h3>Skills</h3>
+    <div id="pSkills"></div>
+  </section>
+
+  <section>
+    <h3>Experience</h3>
+    <p id="pExperience"></p>
+  </section>
+
+  <section>
+    <h3>Education</h3>
+    <p id="pEducation"></p>
+  </section>
+
+  <section>
+    <h3>Projects</h3>
+    <p id="pProjects"></p>
+  </section>
+</main>
+
+<div class="preview-actions">
+  <button onclick="window.print()">Print / Save PDF</button>
+  <select id="templateSelect"></select>
+  <a href="index.html">Edit</a>
+</div>
+
+<script src="js/store.js"></script>
+<script src="js/templates.js"></script>
+<script src="js/render.js"></script>
+</body>
+</html>

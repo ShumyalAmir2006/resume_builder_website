@@ -2,36 +2,25 @@
 <html>
 <head>
   <title>Export Resume</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/base.css">
 </head>
 <body>
 
 <header class="nav">
-  <h2>ResumeBuilder</h2>
-  <nav><a href="index.html">Builder</a></nav>
+  <strong>ResumeBuilder</strong>
 </header>
 
 <main class="container">
-  <h1>Export Options</h1>
+  <h1>Export Resume</h1>
 
-  <a class="btn" href="index.html" onclick="setTimeout(()=>window.print(),300)">
-    Print / Save PDF
+  <a class="primary" href="preview.html" onclick="setTimeout(()=>window.print(),300)">
+    Save as PDF
   </a>
 
-  <button class="btn" onclick="exportJSON()">Download JSON</button>
+  <button onclick="downloadJSON()">Download Backup</button>
+  <input type="file" onchange="importJSON(event)">
 </main>
 
-<script>
-function exportJSON() {
-  const data = localStorage.getItem("resume");
-  if (!data) return alert("No resume found");
-  const blob = new Blob([data], { type: "application/json" });
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "resume.json";
-  a.click();
-}
-</script>
-
+<script src="js/store.js"></script>
 </body>
 </html>
