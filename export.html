@@ -3,7 +3,7 @@
 <head>
   <title>Export Resume</title>
   <link rel="stylesheet" href="css/style.css">
-  </head>
+</head>
 <body>
 
 <header class="nav">
@@ -16,9 +16,15 @@
   <a class="primary" href="preview.html">
     Save as PDF
   </a>
+  
+  <p style="margin-top: 20px;">
+    <button onclick="downloadJSON()">Download Backup</button>
+    <input type="file" onchange="importJSON(event)">
+  </p>
 
-  <button onclick="downloadJSON()">Download Backup</button>
-  <input type="file" onchange="importJSON(event)">
+  <p style="margin-top: 30px;">
+    <a href="index.html">← Back to Builder</a>
+  </p>
 </main>
 
 <script src="js/store.js"></script>
