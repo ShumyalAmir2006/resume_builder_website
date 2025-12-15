@@ -9,44 +9,47 @@
 <body>
 
 <header class="nav">
-  <div class="nav-inner">
-    <h2>ResumeBuilder</h2>
-    <nav>
-      <a href="index.html">Builder</a>
-      <a href="#" onclick="goPreview()">Preview</a>
-      <a href="export.html">Export</a>
-      <a href="about.html">About</a>
-    </nav>
-  </div>
+  <h2>ResumeBuilder</h2>
+  <nav>
+    <a href="index.html">Builder</a>
+    <a href="#" onclick="showPreview()">Preview</a>
+    <a href="export.html">Export</a>
+    <a href="about.html">About</a>
+    <button onclick="toggleTheme()">🌙</button>
+  </nav>
 </header>
 
-<main class="container">
+<main class="grid">
 
   <!-- BUILDER -->
-  <section id="builderPage">
-    <h1>Create your resume</h1>
+  <section id="builder">
+    <h1>Create Your Resume</h1>
 
     <input id="name" placeholder="Full Name" />
     <input id="title" placeholder="Professional Title" />
     <input id="email" placeholder="Email" />
     <input id="phone" placeholder="Phone" />
     <input id="location" placeholder="Location" />
-    <textarea id="summary" placeholder="Short summary"></textarea>
-    <input id="skills" placeholder="Skills (comma separated)" />
 
-    <button onclick="saveResume()">Save</button>
+    <textarea id="summary" placeholder="Short professional summary"></textarea>
+
+    <input id="skillInput" placeholder="Add skill & press Enter" />
+    <div id="skills"></div>
+
+    <textarea id="experience" placeholder="Experience (one per line)"></textarea>
+    <textarea id="education" placeholder="Education details"></textarea>
+    <textarea id="projects" placeholder="Projects"></textarea>
+
+    <button onclick="save()">Save Resume</button>
+    <p class="hint">Autosaved in browser</p>
   </section>
 
   <!-- PREVIEW -->
-  <section id="previewPage" class="preview" style="display:none">
+  <section id="preview" class="preview">
     <h1 id="pName"></h1>
     <h3 id="pTitle"></h3>
 
-    <p>
-      <span id="pEmail"></span> |
-      <span id="pPhone"></span> |
-      <span id="pLocation"></span>
-    </p>
+    <p id="pContact"></p>
 
     <h4>Summary</h4>
     <p id="pSummary"></p>
@@ -54,7 +57,15 @@
     <h4>Skills</h4>
     <div id="pSkills"></div>
 
-    <button onclick="goBuilder()">Back</button>
+    <h4>Experience</h4>
+    <pre id="pExperience"></pre>
+
+    <h4>Education</h4>
+    <pre id="pEducation"></pre>
+
+    <h4>Projects</h4>
+    <pre id="pProjects"></pre>
+
     <button onclick="window.print()">Print / Save PDF</button>
   </section>
 

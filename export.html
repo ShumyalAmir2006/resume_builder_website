@@ -1,26 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>Export Resume</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="nav">
-  <div class="nav-inner">
-    <h2>ResumeBuilder</h2>
-    <nav>
-      <a href="index.html">Builder</a>
-    </nav>
-  </div>
+  <h2>ResumeBuilder</h2>
+  <nav><a href="index.html">Builder</a></nav>
 </header>
 
 <main class="container">
-  <h1>Export Resume</h1>
+  <h1>Export Options</h1>
 
   <a class="btn" href="index.html" onclick="setTimeout(()=>window.print(),300)">
-    Print / Save as PDF
+    Print / Save PDF
   </a>
 
   <button class="btn" onclick="exportJSON()">Download JSON</button>

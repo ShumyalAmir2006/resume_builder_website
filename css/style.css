@@ -1,60 +1,84 @@
+:root {
+  --bg: #f5f5f5;
+  --text: #222;
+  --card: #fff;
+  --accent: #6b2bd9;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #eee;
+  --card: #1e1e1e;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
   margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .nav {
-  background: #6b2bd9;
-  color: white;
-  padding: 10px;
-}
-
-.nav-inner {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-
-.nav a {
+  padding: 12px 20px;
+  background: var(--accent);
   color: white;
-  margin-left: 15px;
-  text-decoration: none;
 }
 
-.container {
-  padding: 20px;
-}
-
-input, textarea {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 8px;
-}
-
-button, .btn {
-  padding: 10px 15px;
-  margin-top: 10px;
-  background: #6b2bd9;
+.nav a, .nav button {
   color: white;
+  margin-left: 12px;
+  background: none;
   border: none;
   cursor: pointer;
 }
 
-.preview {
-  background: white;
-  padding: 30px;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
 }
 
-/* PRINT FIX */
+section {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+input, textarea {
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+}
+
+button, .btn {
+  background: var(--accent);
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#skills span {
+  background: var(--accent);
+  color: white;
+  padding: 6px 10px;
+  margin: 4px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.preview {
+  line-height: 1.6;
+}
+
+/* PRINT */
 @media print {
-  body * {
-    visibility: hidden;
-  }
-  .preview, .preview * {
-    visibility: visible;
-  }
+  body * { visibility: hidden; }
+  .preview, .preview * { visibility: visible; }
   .preview {
     position: absolute;
     left: 0;
