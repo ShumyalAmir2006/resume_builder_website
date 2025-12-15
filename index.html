@@ -8,14 +8,12 @@
 </head>
 <body>
 <header class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="index.html">ResumeBuilder<span style="color:var(--primary)">.</span></a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="index.html" aria-current="page">Builder</a>
-      <a href="#preview">Preview</a>
-      <a href="#export">Export</a>
-    </nav>
-  </div>
+  <nav class="nav-links">
+  <a href="index.html" aria-current="page">Builder</a>
+  <a href="#" id="previewBtn">Preview</a>
+  <a href="#" id="exportBtn">Export</a>
+  <a href="about.html">About</a>
+</nav>
 </header>
 
 <main class="container">
@@ -238,33 +236,6 @@
     </div>
   </div>
 </div>
-
-<section id="about" class="about-section">
-  <h2>About Us</h2>
-  <p>
-    We built this Resume Builder to help students and developers create clean,
-    professional resumes easily and for free.
-  </p>
-
-  <h3>Contact Us</h3>
-  <form id="contactForm">
-    <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Your Email" required />
-    <textarea placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-
-  <p class="contact-note">
-    Or email us directly at:
-    <a href="mailto:shumyalamir2006@gmail.com">shumyalamir2006@gmail.com</a>
-  </p>
-</section>
-
-<div id="exportMenu" class="export-menu" style="display:none">
-  <button onclick="window.print()">Print / Save PDF</button>
-  <button onclick="downloadJSON()">Download Backup (JSON)</button>
-</div>
-
 
 <script src="js/builder.js"></script>
 </body>
