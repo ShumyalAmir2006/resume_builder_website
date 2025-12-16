@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <header class="nav">
+        <strong>ResumeBuilder</strong>
+        <nav>
+            <a href="index.html">Builder</a>
+            <a href="preview.html">Preview</a>
+            <a href="export.html">Export</a>
+            <a href="about.html">About</a>
+            <a href="Signin.html">Login</a>
+        </nav>
+    </header>
+    <main class="container">
+        <h1 style="text-align: center;">Sign Up</h1>
+        <div class="box">
+            <form>
+                <section class="card">
+                    <h3>Username</h3>
+                    <input type="text" class="inputarea" required>
+                    <h3>Email</h3>
+                    <input type="email" class="inputarea" required>
+                    <h3>Password</h3>
+                    <input name="pass" id="pass" type="password" class="inputarea" required>
+                    <h3>Confirm Password</h3>
+                    <input name="confirmpass" id="confirmpass" type="password" class="inputarea" required>
+                    <p id="errorMsg" style="color: rgb(250, 128, 128); display: none;">Passwords do not match</p>
+            </form>
+            <button type="button" onclick="validation()">
+                <p style="color: rgb(0, 0, 0);">Sign Up</p>
+            </button>
+            <button>
+                <a href="Signin.html" style="color: black; text-decoration: none;">I already have an account</a>
+            </button>
+        </section>
+        </div>
+    </main>
+    <script>
+        function validation() {
+            const pass = document.getElementById('pass').value;
+            const confirmpass = document.getElementById('confirmpass').value;
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (pass === confirmpass && pass !== '') {
+                window.location.href = 'startbuilding.html';
+            }
+            else {
+                errorMsg.style.display = 'block';
+            }
+        }
+
+    </script>
+</body>
+
+</html>
