@@ -455,3 +455,18 @@ button:not(.primary):hover {
     color: var(--color-primary-dark);
     text-decoration: underline;
 }
+
+/*Aryan's styles*/
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 30%;
+    text-align: center;
+}
+
+
+
