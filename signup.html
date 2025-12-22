@@ -22,17 +22,11 @@
     <main class="container">
         <h1 style="text-align: center;">Sign Up</h1>
         <div class="box">
-            <form>
-                <section class="card">
-                    <h3>Username</h3>
-                    <input type="text" class="inputarea" required>
-                    <h3>Email</h3>
-                    <input type="email" class="inputarea" required>
-                    <h3>Password</h3>
-                    <input name="pass" id="pass" type="password" class="inputarea" required>
-                    <h3>Confirm Password</h3>
-                    <input name="confirmpass" id="confirmpass" type="password" class="inputarea" required>
-                    <p id="errorMsg" style="color: rgb(250, 128, 128); display: none;">Passwords do not match</p>
+            <form action="auth_signup.php" method="POST">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit" class="primary">Sign Up</button>
             </form>
             <button type="button" onclick="validation()">
                 <p style="color: rgb(0, 0, 0);">Sign Up</p>
