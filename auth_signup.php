@@ -4,7 +4,7 @@ require 'db.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $_POST['username'];
     $email = $_POST['email'];
-    $pass = password_hash($_POST['password'], PASSWORD_BCRYPT); // Secure hashing
+    $pass = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
     try {
         $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");

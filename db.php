@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
 $dbname = "resume_builder";
-$username = "root"; // Default for XAMPP
-$password = "";     // Default for XAMPP
+$username = "root";
+$password = "";
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

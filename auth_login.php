@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user && password_verify($pass, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
-        header("Location: index.html"); // Redirect to Builder
+        header("Location: index.html");
     } else {
         header("Location: Signin.html?error=invalid");
     }
